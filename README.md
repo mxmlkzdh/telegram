@@ -1,6 +1,6 @@
 # Telegram - A simple Telegram bot library for Go
 
-Read this article to learn how to get your telegram bot token and chat id:
+Read this article to learn how to get your Telegram bot token and chat id:
 [Setup Telegram bot to get alert notifications](https://medium.com/linux-shots/setup-telegram-bot-to-get-alert-notifications-90be7da4444)
 
 
