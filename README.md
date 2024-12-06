@@ -1,1 +1,1 @@
-# Telemetry - A simple Telegram bot library for Go
+# Telegram - A simple Telegram bot library for Go
