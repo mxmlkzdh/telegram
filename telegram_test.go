@@ -3,7 +3,7 @@ package telegram
 import "testing"
 
 func TestNewTelegramWithoutMarkdown(t *testing.T) {
-	telegram := NewTelegram("139:AAH", "11788", false)
+	telegram := New("139:AAH", "11788", false)
 
 	expected := "https://api.telegram.org/bot139:AAH/sendMessage"
 	actual := telegram.Endpoint
@@ -13,7 +13,7 @@ func TestNewTelegramWithoutMarkdown(t *testing.T) {
 }
 
 func TestNewTelegramWithMarkdown(t *testing.T) {
-	telegram := NewTelegram("139:AAH", "11788", true)
+	telegram := New("139:AAH", "11788", true)
 
 	expected := "https://api.telegram.org/bot139:AAH/sendMessage?parse_mode=Markdown"
 	actual := telegram.Endpoint
