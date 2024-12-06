@@ -21,7 +21,7 @@ const (
 )
 
 func main() {
-	telegram := telegram.NewTelegram(token, chatID, false)
+	telegram := telegram.New(token, chatID, false)
 	if err := telegram.Send("Hello, World!"); err != nil {
 		fmt.Println(err)
 	}
