@@ -14,7 +14,7 @@ type Telegram struct {
 	Endpoint string
 }
 
-func NewTelegram(token, chatID string, markdown bool) *Telegram {
+func New(token, chatID string, markdown bool) *Telegram {
 	endPoint := "https://api.telegram.org/bot" + token + "/sendMessage"
 	if markdown {
 		endPoint += "?parse_mode=Markdown"
