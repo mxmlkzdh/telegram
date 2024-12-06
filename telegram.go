@@ -40,11 +40,11 @@ func (t *Telegram) Send(text string) error {
 	}
 	resp, err := http.Post(t.Endpoint, "application/json", bytes.NewBuffer(jsonPayload))
 	if err != nil {
-		return fmt.Errorf("failed to send message: %w", err)
+		return fmt.Errorf("failed to send notification: %w", err)
 	}
 	defer resp.Body.Close()
 	if resp.StatusCode != http.StatusOK {
-		return fmt.Errorf("failed to send message with status: %s", resp.Status)
+		return fmt.Errorf("failed to send notification with status: %s", resp.Status)
 	}
 	return nil
 }
