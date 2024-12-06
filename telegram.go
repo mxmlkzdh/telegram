@@ -26,13 +26,13 @@ func NewTelegram(token, chatID string, markdown bool) *Telegram {
 	}
 }
 
-func (t *Telegram) Send(notification Notification) error {
+func (t *Telegram) Send(text string) error {
 	payload := struct {
 		ChatID string `json:"chat_id"`
 		Text   string `json:"text"`
 	}{
 		ChatID: t.ChatID,
-		Text:   notification.Text,
+		Text:   text,
 	}
 	jsonPayload, err := json.Marshal(payload)
 	if err != nil {
