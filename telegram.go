@@ -7,22 +7,24 @@ import (
 	"net/http"
 )
 
+const endpoint = "https://api.telegram.org/bot%s/sendMessage"
+
 type Telegram struct {
 	Token    string
 	ChatID   string
 	Markdown bool
-	Endpoint string
+	endpoint string
 }
 
 func New(token, chatID string, markdown bool) *Telegram {
-	endPoint := "https://api.telegram.org/bot" + token + "/sendMessage"
+	e := fmt.Sprintf(endpoint, token)
 	if markdown {
-		endPoint += "?parse_mode=Markdown"
+		e += "?parse_mode=Markdown"
 	}
 	return &Telegram{
 		Token:    token,
 		ChatID:   chatID,
-		Endpoint: endPoint,
+		endpoint: e,
 	}
 }
 
@@ -38,7 +40,7 @@ func (t *Telegram) Send(text string) error {
 	if err != nil {
 		return fmt.Errorf("failed to marshal payload: %w", err)
 	}
-	resp, err := http.Post(t.Endpoint, "application/json", bytes.NewBuffer(jsonPayload))
+	resp, err := http.Post(t.endpoint, "application/json", bytes.NewBuffer(jsonPayload))
 	if err != nil {
 		return fmt.Errorf("failed to send notification: %w", err)
 	}
